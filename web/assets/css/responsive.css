@@ -1,0 +1,76 @@
+@media screen and (max-width:768px) {
+    .contact-section{
+        height: auto;
+    }
+    .premium-services img{
+        margin-bottom: 30px;
+        width: 70%;
+    }
+}
+@media screen and (max-width:525px) {
+    .header {
+        padding-top: 25px;
+        text-align: center;
+    }
+    .header .web-logo{
+        display: none;
+    }
+    .header .mbl-logo{
+        display: block;
+        margin-bottom: 25px;
+    }
+    .consultation-section{
+        height: auto;
+    }
+    .services-offered .points img {
+        margin-right: 20px;
+    }
+    .services-offered .points h3 {
+        font-size: 20px;
+    }
+    h1{
+        font-size: 35px !important;
+        line-height: 40px !important;
+    }
+    h4,h2{
+        font-size: 25px !important;
+    }
+    a{
+        font-size: 20px !important;
+    }
+    p{
+        font-size: 20px !important;
+    }
+    span{
+        font-size: 20px !important;
+    }
+    .consultation-section a{
+        margin-top: 40px;
+    }
+    .consultation-section p {
+        margin-top: 25px;
+    }
+    .premium-services img {
+        margin-bottom: 40px;
+        width: 95%;
+    }
+    .header .que a{
+        font-size: 15px !important;
+    }
+    .contact-form .heading p{
+        font-size: 15px !important;
+    }
+    .contact-form .form-detail p{
+        font-size: 15px !important;
+        margin-bottom: 7px;
+    }
+    .consultant-desc {
+        padding: 30px 0px;
+    }
+    .consultant-desc .heading {
+        margin-bottom: 10px;
+    }
+    .consultant-desc .description{
+        margin: 0;
+    }
+}

@@ -1,0 +1,42 @@
+
+
+@media screen and (max-width:525px) {
+    h1{
+        font-size: 35px !important;
+        line-height: 40px !important;
+    }
+    h4,h2{
+        font-size: 25px !important;
+    }
+    a{
+        font-size: 20px !important;
+    }
+    p{
+        font-size: 20px !important;
+    }
+    span{
+        font-size: 20px !important;
+    }
+    .contact-form .heading p{
+        font-size: 15px !important;
+    }
+    .contact-form .form-detail p{
+        font-size: 15px !important;
+        margin-bottom: 7px;
+    }
+    .table-section .dataTables_length{
+        margin-bottom: 15px;
+    }
+    .table-section .dataTables_info {
+        margin-bottom: 10px;
+    }
+    .date-range {
+        margin-bottom: 45px;
+        right: 0;
+        align-items: center;
+        justify-content: center;
+    }
+    .table-section .dataTables_length {
+        position: relative;
+    }
+}
