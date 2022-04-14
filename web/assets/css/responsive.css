@@ -6,8 +6,6 @@
         margin-bottom: 30px;
         width: 70%;
     }
-}
-@media screen and (max-width:525px) {
     .header {
         padding-top: 25px;
         text-align: center;
@@ -19,6 +17,11 @@
         display: block;
         margin-bottom: 25px;
     }
+    .header .quote-btn{
+        justify-content: center;
+    }
+}
+@media screen and (max-width:525px) {
     .consultation-section{
         height: auto;
     }
