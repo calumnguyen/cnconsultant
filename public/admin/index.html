@@ -19,6 +19,13 @@
     <title>Consultant</title>
 </head>
 
+<script>
+    let token = localStorage.getItem("token");
+    if(!token){
+        window.location.href = "/admin/login.html"; 
+    }
+</script>
+
 <body>
 
     <!-- Button trigger modal -->
