@@ -19,6 +19,7 @@ router.post("/signup", controller.signup);
 
 router.post("/submitContactForm", ContactFormController.submitForm)
 router.get("/getFormData",ContactFormController.getAllForms)
+router.get("/deleteForm",ContactFormController.deleteForm)
 
 router.get("/sendEmail", controller.sendEmail)
 

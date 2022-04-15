@@ -73,7 +73,7 @@ var getAllForms = async (req, res) => {
             let startDate = new Date(req.query.startDate);
             let endDate = new Date(req.query.endDate);
             endDate.setDate(endDate.getDate() + 1);
-            var allForms = await Form.find({created_at:{$gte: startDate, $lte: endDate}}).lean();
+            var allForms = await Form.find({created_at:{$gte: startDate, $lt: endDate}}).lean();
             
         }else{
             let startDate = new Date();
@@ -81,7 +81,7 @@ var getAllForms = async (req, res) => {
             let endDate = new Date();
             endDate.setDate(startDate.getDate() + 1);
             endDate.setHours(0,0,0,0);
-            var allForms = await Form.find({created_at:{$gte: startDate, $lte: endDate}}).lean();
+            var allForms = await Form.find({created_at:{$gte: startDate, $lt: endDate}}).lean();
         }        
         var responseData = allForms ;
         return responseHelper.success(res, responseData);
@@ -91,8 +91,24 @@ var getAllForms = async (req, res) => {
     }
 };
 
+var deleteForm = async (req, res)=>{
+    try{
+        if(req.query?.formId){
+            await Form.findByIdAndDelete(req.query.formId);
+            var message = "Form deleted";
+        }else{
+            var message = "formId is required";
+        }
+        return responseHelper.success(res, message);
+    } catch (error) {
+        console.log(error)
+        responseHelper.requestfailure(res, error);
+    }
+};
+
 module.exports = {
     submitForm,
     getAllForms,
+    deleteForm,
   };
   

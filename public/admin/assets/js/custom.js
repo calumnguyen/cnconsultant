@@ -43,7 +43,14 @@ $(document).ready(function() {
   let table = $('#example').DataTable({
     "ajax": base_url + "/auth/getFormData",
     "columns": [
-        { "data": "created_at" },
+      {
+        'data': 'created_at',
+        'render': function (index, row, data) {
+          var date = data['created_at'];
+          const event = Date.parse(date);
+          return moment(event).format('dddd, MMMM Do YYYY, h:mm:ss a');;
+        }
+      },
         { "data": "firstName" },
         { "data": "lastName" },
         { "data": "lang" },
@@ -53,12 +60,76 @@ $(document).ready(function() {
         { "data": "companyAddress" },
         { "data": "serviceIndustry" },
         { "data": "timeToCall" },
+        {
+          'data': '_id',
+          'render': function (index, row, data) {
+            var Id = data['_id'];
+            return `<button class='btn btn-danger' onclick='deleteForm("${Id}")'>Delete</button>`
+          }
+        }
     ]
   } );  
+
   table.on( 'draw', function () {
     $(".sorting_asc").click();
  });
 } );
+
+function deleteForm(formId){
+
+  if (confirm('Are you sure ?')) {
+  
+
+    let base_url = window.location.origin
+    var request = $.ajax({
+      url: base_url + "/auth/deleteForm?formId="+formId,
+      type: "GET"
+    });
+    request.done(function(msg) {
+      if(msg.status == 'Success'){
+        $('#example').DataTable().destroy();
+        
+        let table = $('#example').DataTable({
+          "ajax": base_url + "/auth/getFormData",
+          "columns": [
+            {
+              'data': 'created_at',
+              'render': function (index, row, data) {
+                var date = data['created_at'];
+                const event = Date.parse(date);
+                return moment(event).format('dddd, MMMM Do YYYY, h:mm:ss a');;
+              }
+            },
+              { "data": "firstName" },
+              { "data": "lastName" },
+              { "data": "lang" },
+              { "data": "phone" },
+              { "data": "email" },
+              { "data": "companyName" },
+              { "data": "companyAddress" },
+              { "data": "serviceIndustry" },
+              { "data": "timeToCall" },
+              {
+                'data': '_id',
+                'render': function (index, row, data) {
+                  var Id = data['_id'];
+                  return `<button class='btn btn-danger' onclick='deleteForm("${Id}")'>Delete</button>`
+                }
+              }
+          ]
+        } );  
+      
+        table.on( 'draw', function () {
+          $(".sorting_asc").click();
+      });     
+      }
+    });
+       
+  }else{
+    console.log('cancel')
+  }
+
+}
 
 // daterange
 
@@ -76,16 +147,30 @@ $(function() {
   let table = $('#example').DataTable({
     "ajax": base_url + "/auth/getFormData?startDate="+startDate+"&endDate="+endDate,
     "columns": [
-        { "data": "created_at" },
-        { "data": "firstName" },
-        { "data": "lastName" },
-        { "data": "lang" },
-        { "data": "phone" },
-        { "data": "email" },
-        { "data": "companyName" },
-        { "data": "companyAddress" },
-        { "data": "serviceIndustry" },
-        { "data": "timeToCall" },
+      {
+        'data': 'created_at',
+        'render': function (index, row, data) {
+          var date = data['created_at'];
+          const event = Date.parse(date);
+          return moment(event).format('dddd, MMMM Do YYYY, h:mm:ss a');;
+        }
+      },
+      { "data": "firstName" },
+      { "data": "lastName" },
+      { "data": "lang" },
+      { "data": "phone" },
+      { "data": "email" },
+      { "data": "companyName" },
+      { "data": "companyAddress" },
+      { "data": "serviceIndustry" },
+      { "data": "timeToCall" },
+      {
+        'data': '_id',
+        'render': function (index, row, data) {
+          var Id = data['_id'];
+          return `<button class='btn btn-danger' onclick='deleteForm("${Id}")'>Delete</button>`
+        }
+      }
     ]
   } );  
   table.on( 'draw', function () {
