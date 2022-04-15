@@ -459,7 +459,7 @@ font-family:'Montserrat-Bold.ttf';
   padding: 70px 0px;
   display: flex;
   align-items: center;
-  overflow-x: hidden;
+  height: 500px;
 }
 .contact-section h1{
   font-weight: 700;
@@ -587,6 +587,9 @@ section div.container h3 {
   margin: 0 0 25px 0;
 }
 @media (max-width: 992px) {
+  .contact-section{
+    overflow: hidden;
+  }
   section {
     padding: 0 20px 0 20px;
   }
