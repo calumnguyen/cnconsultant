@@ -38,6 +38,6 @@ app.use(function (err, req, res, next) {
   });
 });
 
-server.listen(process.env.PORT_NO, () => {
+server.listen(process.env.PORT || process.env.PORT_NO, () => {
   console.log(`Server Running ON Port ${process.env.PORT_NO}`);
 });
