@@ -30,7 +30,7 @@ var submitForm = async (req, res) => {
 
         let bodyData = req.body;
         if(bodyData['lang'] == 'en'){
-            bodyData['lang'] = 'english';  
+            bodyData['lang'] = 'English';  
         }else{
             bodyData['lang'] = 'Vietnamese';  
         }
@@ -38,7 +38,7 @@ var submitForm = async (req, res) => {
         const newform = await Form.create(bodyData);
         // send email to sender after form creation here
         var templateId = "d-879557cc3f5c4517ac739a8b63ab2477";  ///////////// english template
-        if(req.body.lang == 'es'){
+        if(req.body.lang == 'Vietnamese'){
             templateId = "d-a44117345cef4ba5b2655cecd6b71bc2";  ///////////// Vietnamese template
         }
         const msg = {
@@ -73,7 +73,7 @@ var getAllForms = async (req, res) => {
             let startDate = new Date(req.query.startDate);
             let endDate = new Date(req.query.endDate);
             endDate.setDate(endDate.getDate() + 1);
-            var allForms = await Form.find({created_at:{$gte: startDate, $lt: endDate}}).lean();
+            var allForms = await Form.find({created_at:{$gte: startDate, $lt: endDate}}).sort({created_at: -1}).lean();
             
         }else{
             let startDate = new Date();
@@ -81,7 +81,7 @@ var getAllForms = async (req, res) => {
             let endDate = new Date();
             endDate.setDate(startDate.getDate() + 1);
             endDate.setHours(0,0,0,0);
-            var allForms = await Form.find({created_at:{$gte: startDate, $lt: endDate}}).lean();
+            var allForms = await Form.find({created_at:{$gte: startDate, $lt: endDate}}).sort({created_at: -1}).lean();
         }        
         var responseData = allForms ;
         return responseHelper.success(res, responseData);

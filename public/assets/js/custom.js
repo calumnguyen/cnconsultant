@@ -3,7 +3,6 @@
 $(document).ready(function () {
   getLanguage();
 
-  
 });
 let lang = localStorage.getItem("language");
   if(lang == 'es'){
@@ -17,6 +16,15 @@ let lang = localStorage.getItem("language");
 var language;
 function getLanguage() {
   //   alert("hii");
+  var url = window.location.href;
+  let response = url.match('vit');
+  if(response){
+    localStorage.setItem('language',"es");
+  }
+  response = url.match('en');
+  if(response){
+    localStorage.setItem('language',"en");
+  }
   localStorage.getItem("language") == null ? setLanguage("en") : false;
   $.ajax({
     url: "/assets/language/" + localStorage.getItem("language") + ".json",
@@ -83,6 +91,12 @@ function getLanguage() {
       $(".homepage").text(language.back_to_homepage);
     },
   });
+  if(localStorage.Name && localStorage.language == 'en'){
+      $(".consultant-desc .heading").text('Dear '+localStorage.Name+',');
+  }
+  else if(localStorage.Name){
+    $(".consultant-desc .heading").text(localStorage.Name+',');
+  }
 }
 
 // language change buttons

@@ -88,9 +88,16 @@ function deleteForm(formId){
     request.done(function(msg) {
       if(msg.status == 'Success'){
         $('#example').DataTable().destroy();
+        let startDate = localStorage.getItem('startDate');
+        let endDate = localStorage.getItem('endDate');
+        if(startDate && endDate){
+          var addUrl = '?startDate='+startDate+'&endDate='+endDate;
+        }else{
+          var addUrl = '';
+        }
         
         let table = $('#example').DataTable({
-          "ajax": base_url + "/auth/getFormData",
+          "ajax": base_url + "/auth/getFormData"+addUrl,
           "columns": [
             {
               'data': 'created_at',
@@ -141,6 +148,8 @@ $(function() {
     let base_url = window.location.origin
     let startDate = start.format('YYYY-MM-DD');
     let endDate = end.format('YYYY-MM-DD');
+    localStorage.setItem('startDate',startDate);
+    localStorage.setItem('endDate',endDate);
   
   $('#example').DataTable().destroy();
    
