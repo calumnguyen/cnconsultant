@@ -4,6 +4,18 @@ $(document).ready(function () {
   getLanguage();
 
 });
+var url = window.location.href;
+let response = url.match('vie');
+if(response){
+  localStorage.setItem('language',"es");
+}else{
+  response = url.match('en');
+  if(response){
+    localStorage.setItem('language',"en");
+  }
+}
+
+
 let lang = localStorage.getItem("language");
   if(lang == 'es'){
     $('#button2').hide(); 
@@ -16,15 +28,7 @@ let lang = localStorage.getItem("language");
 var language;
 function getLanguage() {
   //   alert("hii");
-  var url = window.location.href;
-  let response = url.match('vit');
-  if(response){
-    localStorage.setItem('language',"es");
-  }
-  response = url.match('en');
-  if(response){
-    localStorage.setItem('language',"en");
-  }
+  
   localStorage.getItem("language") == null ? setLanguage("en") : false;
   $.ajax({
     url: "/assets/language/" + localStorage.getItem("language") + ".json",
