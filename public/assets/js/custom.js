@@ -2,33 +2,31 @@
 
 $(document).ready(function () {
   getLanguage();
-
 });
 var url = window.location.href;
-let response = url.match('vie');
-if(response){
-  localStorage.setItem('language',"es");
-}else{
-  response = url.match('en');
-  if(response){
-    localStorage.setItem('language',"en");
+let response = url.match("vie");
+if (response) {
+  localStorage.setItem("language", "es");
+} else {
+  response = url.match("en");
+  if (response) {
+    localStorage.setItem("language", "en");
   }
 }
 
-
 let lang = localStorage.getItem("language");
-  if(lang == 'es'){
-    $('#button2').hide(); 
-    $('#button1').show();   
-  }else{
-    $('#button1').hide();  
-    $('#button2').show(); 
-  }
+if (lang == "es") {
+  $("#button2").hide();
+  $("#button1").show();
+} else {
+  $("#button1").hide();
+  $("#button2").show();
+}
 
 var language;
 function getLanguage() {
   //   alert("hii");
-  
+
   localStorage.getItem("language") == null ? setLanguage("en") : false;
   $.ajax({
     url: "/assets/language/" + localStorage.getItem("language") + ".json",
@@ -42,10 +40,14 @@ function getLanguage() {
       $(".consultation-section p .deserve").text(language.business_deserve_sub);
       $(".consultation-section a span").text(language.quote_consultation_call);
       $(".consultation-section a .for-free").text(language.for_free);
-      $(".premium-img").attr('src', language.premium_img);
+      $(".premium-img").attr("src", language.premium_img);
       $(".premium-services h1").text(language.premium_services_title);
-      $(".premium-services p .plain-text").text(language.premium_services_subheading);
-      $(".premium-services p .clr").text(language.premium_services_subheading_clr);
+      $(".premium-services p .plain-text").text(
+        language.premium_services_subheading
+      );
+      $(".premium-services p .clr").text(
+        language.premium_services_subheading_clr
+      );
       $(".service-content .para1").text(language.premium_services_service1);
       $(".service-content .para2").text(language.premium_services_service2);
       $(".service-content .para3").text(language.premium_services_service3);
@@ -54,15 +56,28 @@ function getLanguage() {
       $(".schedule-consult a span").text(language.schedule_consultation);
       $(".schedule-consult a .for-free").text(language.for_free);
       $(".services-offered h1").text(language.services_offered_title);
-      $(".services-offered .points .para1").text(language.services_offered_para1);
-      $(".services-offered .points .para2").text(language.services_offered_para2);
-      $(".services-offered .points .para3").text(language.services_offered_para3);
-      $(".services-offered .points .para4").text(language.services_offered_para4);
-      $(".services-offered .points .para5").text(language.services_offered_para5);
-      $(".services-offered .points .para6").text(language.services_offered_para6);
+      $(".services-offered .points .para1").text(
+        language.services_offered_para1
+      );
+      $(".services-offered .points .para2").text(
+        language.services_offered_para2
+      );
+      $(".services-offered .points .para3").text(
+        language.services_offered_para3
+      );
+      $(".services-offered .points .para4").text(
+        language.services_offered_para4
+      );
+      $(".services-offered .points .para5").text(
+        language.services_offered_para5
+      );
+      $(".services-offered .points .para6").text(
+        language.services_offered_para6
+      );
       $(".services-offered p").text(language.services_offered_fotterheading);
       $(".services-offered a span").text(language.schedule_consultation);
       $(".services-offered a .for-free").text(language.for_free);
+      $(".our-partners h1").text(language.our_partners_title);
       $(".guarantees h1").text(language.our_guarantees_title);
       $(".guarantee .heading-1").text(language.our_guarantees_card1_title);
       $(".guarantee .para-1").text(language.our_guarantees_card1_para);
@@ -72,7 +87,9 @@ function getLanguage() {
       $(".guarantee .para-3").text(language.our_guarantees_card3_para);
       $(".guarantee .heading-4").text(language.our_guarantees_card4_title);
       $(".guarantee .para-4").text(language.our_guarantees_card4_para);
-      $(".guarantees .trusted-partner").text(language.our_guarantees_fotterheading);
+      $(".guarantees .trusted-partner").text(
+        language.our_guarantees_fotterheading
+      );
       $(".guarantees a span").text(language.schedule_consultation);
       $(".guarantees a .for-free").text(language.for_free);
       $(".contact-section h1").text(language.extraordinary_service);
@@ -95,11 +112,10 @@ function getLanguage() {
       $(".homepage").text(language.back_to_homepage);
     },
   });
-  if(localStorage.Name && localStorage.language == 'en'){
-      $(".consultant-desc .heading").text('Dear '+localStorage.Name+',');
-  }
-  else if(localStorage.Name){
-    $(".consultant-desc .heading").text(localStorage.Name+',');
+  if (localStorage.Name && localStorage.language == "en") {
+    $(".consultant-desc .heading").text("Dear " + localStorage.Name + ",");
+  } else if (localStorage.Name) {
+    $(".consultant-desc .heading").text(localStorage.Name + ",");
   }
 }
 
@@ -108,25 +124,29 @@ function getLanguage() {
 function setLanguage(lang) {
   localStorage.setItem("language", lang);
   getLanguage();
- 
 }
-var btn = $('#button1,#button2').click(function() { // bind click handler to both button
+var btn = $("#button1,#button2").click(function () {
+  // bind click handler to both button
   $(this).hide(); // hide the clicked button
   btn.not(this).show(); // show the another button which is hidden
 });
-
 
 // aos animation
 
 AOS.init();
 
-function slideSlider(){
-  $("#slider-scroller").css({"left":"0%","transition":"all 0s linear"});
-  $("#slider-scroller").css({"left": String(parseInt($("#slider-scroller").css("left")) - 500) + "px","transition":"all 5s linear"});
-  setTimeout(function(){moveSliderItem()}, 2635);
+function slideSlider() {
+  $("#slider-scroller").css({ left: "0%", transition: "all 0s linear" });
+  $("#slider-scroller").css({
+    left: String(parseInt($("#slider-scroller").css("left")) - 500) + "px",
+    transition: "all 5s linear",
+  });
+  setTimeout(function () {
+    moveSliderItem();
+  }, 2635);
 }
 
-function moveSliderItem(){
+function moveSliderItem() {
   $("#slider-scroller div").first().detach().appendTo($("#slider-scroller"));
   slideSlider();
 }
