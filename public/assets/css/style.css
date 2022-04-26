@@ -751,8 +751,7 @@ div.highway-slider ul.highway-lane li.highway-car {
   padding: 40px 0px;
 }
 .our-partners a .digimark-logo {
-  width: 100%;
-  max-width: 570px;
+  width: 300px;
 }
 .our-partners .social-icons {
   margin-top: 15px;
@@ -773,7 +772,7 @@ div.highway-slider ul.highway-lane li.highway-car {
   height: auto;
   width: 0px;
   position: fixed;
-  top: 50vh;
+  top: 59vh;
   right: 0;
   padding: 10px;
   z-index: 99;
@@ -831,4 +830,38 @@ div.highway-slider ul.highway-lane li.highway-car {
 }
 .social-icons a img {
   width: 30px;
+}
+
+.partner-logo {
+  background: linear-gradient(
+    95.4deg,
+    rgba(255, 255, 255, 0.6) 42.97%,
+    rgba(240, 207, 153, 0.24) 100.97%
+  );
+  border-radius: 15px 15px 0px 15px;
+  max-width: 550px;
+  margin: 0 auto;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.partner-logo:hover {
+  /* background-position: 100% 0;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-image: linear-gradient(
+    to right,
+    #25aae1,
+    #40e495,
+    #30dd8a,
+    #2bb673
+  ); */
+  cursor: pointer;
 }
