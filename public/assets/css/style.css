@@ -751,7 +751,8 @@ div.highway-slider ul.highway-lane li.highway-car {
   padding: 40px 0px;
 }
 .our-partners a .digimark-logo {
-  max-width: 100%;
+  width: 100%;
+  max-width: 570px;
 }
 .our-partners .social-icons {
   margin-top: 15px;
