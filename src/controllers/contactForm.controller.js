@@ -69,7 +69,7 @@ var submitForm = async (req, res) => {
 };
 var getAllForms = async (req, res) => {
     try{
-        if(req.query?.startDate && req.query?.endDate){
+        if(req.query.startDate && req.query.endDate){
             let startDate = new Date(req.query.startDate);
             let endDate = new Date(req.query.endDate);
             endDate.setDate(endDate.getDate() + 1);
@@ -93,7 +93,7 @@ var getAllForms = async (req, res) => {
 
 var deleteForm = async (req, res)=>{
     try{
-        if(req.query?.formId){
+        if(req.query.formId){
             await Form.findByIdAndDelete(req.query.formId);
             var message = "Form deleted";
         }else{
