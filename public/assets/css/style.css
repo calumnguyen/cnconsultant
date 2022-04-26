@@ -775,6 +775,7 @@ div.highway-slider ul.highway-lane li.highway-car {
   top: 50vh;
   right: 0;
   padding: 10px;
+  z-index: 99;
 }
 
 .sidebar .social {
@@ -806,8 +807,8 @@ div.highway-slider ul.highway-lane li.highway-car {
   display: none;
 }
 .sidebar .social:hover {
-  margin-left: -115px;
-  width: 125px;
+  margin-left: -152px;
+  width: 164px;
 }
 .sidebar .social:hover .arrow .left {
   display: none;
@@ -823,4 +824,10 @@ div.highway-slider ul.highway-lane li.highway-car {
   align-items: center;
   justify-content: flex-start;
   height: 40px;
+}
+.social.icons a img {
+  width: 23px;
+}
+.social-icons a img {
+  width: 30px;
 }
