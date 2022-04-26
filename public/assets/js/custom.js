@@ -152,3 +152,10 @@ function moveSliderItem() {
 }
 
 slideSlider();
+$(window).scroll(function () {
+  var sticky = $(".sidebar"),
+    scroll = $(window).scrollTop();
+
+  if (scroll >= 100) sticky.fadeOut();
+  else sticky.fadeIn();
+});
