@@ -176,6 +176,7 @@ a {
   display: flex;
   align-items: center;
   overflow-x: hidden;
+  position: relative;
 }
 .consultation-section h1 {
   font-weight: 400;
@@ -196,7 +197,7 @@ a {
   line-height: 37px;
   color: #f0cf99;
 }
-.consultation-section a {
+.consultation-section .free {
   border: 3px solid #f0cf99;
   border-radius: 15px;
   border-bottom-right-radius: 0px;
@@ -209,7 +210,7 @@ a {
   display: inline-block;
   transition: 0.5s ease-in-out;
 }
-.consultation-section a:hover {
+.consultation-section .free:hover {
   border: 3px solid #f0cf99;
   border-radius: 15px;
   border-bottom-right-radius: 0px;
@@ -736,7 +737,7 @@ div.highway-slider ul.highway-lane li.highway-car {
 }
 .our-partners {
   overflow-x: hidden;
-  padding-bottom: 60px;
+  padding-bottom: 25px;
   background: linear-gradient(
     152.31deg,
     rgb(36 36 36 / 80%) 59.49%,
@@ -748,16 +749,17 @@ div.highway-slider ul.highway-lane li.highway-car {
   font-size: 48px;
   line-height: 59px;
   color: #f0cf99;
-  padding: 40px 0px;
+  padding-top: 40px;
+  padding-bottom: 25px;
 }
 .our-partners a .digimark-logo {
   width: 300px;
 }
 .our-partners .social-icons {
-  margin-top: 15px;
+  margin-top: 10px;
 }
 .our-partners .social-icons a {
-  margin: 5px;
+  margin: 2px;
 }
 
 .sidebar a {
@@ -771,10 +773,10 @@ div.highway-slider ul.highway-lane li.highway-car {
 .sidebar {
   height: auto;
   width: 0px;
-  position: fixed;
-  top: 59vh;
+  position: absolute;
+  top: 45%;
   right: 0;
-  padding: 10px;
+  transform: translate(0px, 0px);
   z-index: 99;
 }
 
@@ -799,16 +801,17 @@ div.highway-slider ul.highway-lane li.highway-car {
   -webkit-transition-delay: 0.2s;
   box-shadow: 0px 0px 6px 0px #3e3d3d;
   cursor: pointer;
+  position: relative;
 }
 .sidebar .social .arrow {
-  margin: 9px;
+  margin: 3px;
 }
 .sidebar .social .arrow .right {
   display: none;
 }
 .sidebar .social:hover {
-  margin-left: -152px;
-  width: 164px;
+  margin-left: -147px;
+  width: 157px;
 }
 .sidebar .social:hover .arrow .left {
   display: none;
@@ -829,7 +832,7 @@ div.highway-slider ul.highway-lane li.highway-car {
   width: 23px;
 }
 .social-icons a img {
-  width: 30px;
+  width: 25px;
 }
 
 .partner-logo {
@@ -849,6 +852,28 @@ div.highway-slider ul.highway-lane li.highway-car {
   -o-transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
+  position: relative;
+}
+.partner-logo::before {
+  border-radius: 15px 15px 0px 15px;
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgb(93, 86, 73);
+  background: linear-gradient(
+    302deg,
+    rgba(93, 86, 73, 0.773546918767507) 44%,
+    rgba(0, 0, 0, 0.6699054621848739) 100%
+  );
+  z-index: -1;
+  transition: opacity 0.5s linear;
+  opacity: 0;
+}
+.partner-logo:hover::before {
+  opacity: 1;
 }
 .partner-logo:hover {
   /* background-position: 100% 0;
