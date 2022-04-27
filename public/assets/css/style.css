@@ -112,6 +112,7 @@ a {
   padding-bottom: 20px;
   border-bottom: 3px solid #f0cf99;
   position: relative;
+  z-index: 9;
 }
 .header .mbl-logo {
   display: none;
@@ -512,6 +513,8 @@ a {
   display: flex;
   align-items: center;
   height: 500px;
+  position: relative;
+  overflow: hidden;
 }
 .contact-section h1 {
   font-weight: 700;
