@@ -740,7 +740,7 @@ div.highway-slider ul.highway-lane li.highway-car {
 }
 .our-partners {
   overflow-x: hidden;
-  padding-bottom: 25px;
+  padding-bottom: 50px;
   background: linear-gradient(
     152.31deg,
     rgb(36 36 36 / 80%) 59.49%,
@@ -866,7 +866,11 @@ div.highway-slider ul.highway-lane li.highway-car {
   bottom: 0;
   left: 0;
   background: rgb(93, 86, 73);
-  background: linear-gradient(0deg, rgb(93 86 73) 44%, rgb(0 0 0) 100%);
+  background: linear-gradient(
+    312deg,
+    rgb(93 86 73 / 67%) 44%,
+    rgb(0 0 0 / 48%) 100%
+  );
   z-index: -1;
   transition: opacity 0.5s linear;
   opacity: 0;
